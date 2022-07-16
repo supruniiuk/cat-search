@@ -18,24 +18,6 @@ export class RequestService {
     });
   }
 
-  public create<T>(route: string, body: any): Observable<T> {
-    return this.http.post<T>(this.createRoute(route), body, {
-      headers: this.generateHeaders(),
-    });
-  }
-
-  public update<T>(route: string, body: any): Observable<T> {
-    return this.http.put<T>(this.createRoute(route), body, {
-      headers: this.generateHeaders(),
-    });
-  }
-
-  public delete<T>(route: string): Observable<T> {
-    return this.http.delete<T>(this.createRoute(route), {
-      headers: this.generateHeaders(),
-    });
-  }
-
   private createRoute = (route: string) => {
     return `${environment.apiUrl}/${route}`;
   };

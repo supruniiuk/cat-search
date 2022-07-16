@@ -1,18 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { IPicture } from 'src/app/shared/interfaces/picture.interface';
 
 @Component({
   selector: 'app-picture',
   templateUrl: './picture.component.html',
-  styleUrls: ['./picture.component.scss']
+  styleUrls: ['./picture.component.scss'],
 })
-export class PictureComponent implements OnInit {
-
+export class PictureComponent {
   @Input() picture: IPicture;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

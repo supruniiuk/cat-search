@@ -7,11 +7,6 @@ import { IPicture } from '../../../../shared/interfaces/picture.interface';
   templateUrl: './picture-list.component.html',
   styleUrls: ['./picture-list.component.scss'],
 })
-export class PictureListComponent implements OnInit {
-  
+export class PictureListComponent {
   @Input() pictures: IPicture[] = [];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

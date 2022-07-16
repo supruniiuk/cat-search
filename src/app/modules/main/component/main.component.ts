@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IOptions, IPicture } from 'src/app/shared/interfaces/picture.interface';
+import {
+  IOptions,
+  IPicture,
+} from 'src/app/shared/interfaces/picture.interface';
 
 import { PageEvent } from '@angular/material/paginator';
 import { PictureService } from 'src/app/services/picture.service';

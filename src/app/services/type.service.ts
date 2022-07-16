@@ -11,10 +11,10 @@ export class TypeService {
   constructor(private requestService: RequestService) {}
 
   getAllBreeds(): Observable<IBreed[]> {
-    return this.requestService.get('breeds');
+    return this.requestService.get<IBreed[]>('breeds');
   }
 
-  getAllCategories(): Observable<ICategory[]>  {
-    return this.requestService.get('categories');
+  getAllCategories(): Observable<ICategory[]> {
+    return this.requestService.get<IBreed[]>('categories');
   }
 }
