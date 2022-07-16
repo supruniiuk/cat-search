@@ -1,12 +1,16 @@
 <app-search></app-search>
 <mat-divider></mat-divider>
 
-<app-picture-list [pictures]="pictures"></app-picture-list>
+<div *ngIf="pictures">
+  <app-picture-list [pictures]="pictures"></app-picture-list>
 
-<mat-paginator
-  [length]="100"
-  [pageSize]="limit"
-  [pageSizeOptions]="[15, 25, 50, 75]"
-  (page)="handlePage($event)"
->
-</mat-paginator>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="limit"
+    [pageSizeOptions]="[15, 25, 50, 75]"
+    (page)="handlePage($event)"
+  >
+  </mat-paginator>
+</div>
+
+<app-loader *ngIf="!pictures"></app-loader>
