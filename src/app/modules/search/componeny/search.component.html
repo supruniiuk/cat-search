@@ -1,17 +1,19 @@
 <div class="search">
-  <mat-form-field appearance="outline">
-    <mat-label>Select bread</mat-label>
+  <mat-form-field *ngIf="breeds" appearance="outline">
+    <mat-label>Select breed</mat-label>
     <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
+      <mat-option *ngFor="let breed of breeds" [value]="breed.name">{{
+        breed.name
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <mat-form-field *ngIf="categories" appearance="outline">
     <mat-label>Select category</mat-label>
     <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.name"
+        >{{ category.name }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 </div>

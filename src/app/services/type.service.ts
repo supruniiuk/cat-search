@@ -1,4 +1,7 @@
+import { IBreed } from '../shared/interfaces/breed.interface';
+import { ICategory } from '../shared/interfaces/category.interface';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RequestService } from './request.service';
 
 @Injectable({
@@ -7,11 +10,11 @@ import { RequestService } from './request.service';
 export class TypeService {
   constructor(private requestService: RequestService) {}
 
-  getAllBreeds() {
+  getAllBreeds(): Observable<IBreed[]> {
     return this.requestService.get('breeds');
   }
 
-  getAllCategories() {
+  getAllCategories(): Observable<ICategory[]>  {
     return this.requestService.get('categories');
   }
 }
