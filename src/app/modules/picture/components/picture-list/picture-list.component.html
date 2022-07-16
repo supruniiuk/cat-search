@@ -1,0 +1,5 @@
+<mat-grid-list class="picture-list" cols="5" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let picture of pictures; first as isFirst">
+    <app-picture [picture]="picture"></app-picture>
+  </mat-grid-tile>
+</mat-grid-list>
