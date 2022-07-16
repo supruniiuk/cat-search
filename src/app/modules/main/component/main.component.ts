@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IOptions, IPicture } from 'src/app/shared/interfaces/picture.interface';
 
-import { IPicture } from 'src/app/shared/interfaces/picture.interface';
 import { PageEvent } from '@angular/material/paginator';
 import { PictureService } from 'src/app/services/picture.service';
 
@@ -14,6 +14,8 @@ export class MainComponent implements OnInit {
   limit: number = 10;
   pictures: IPicture[];
 
+  options: IOptions = { breed: '', category: '' };
+
   constructor(private pictureService: PictureService) {}
 
   ngOnInit(): void {
@@ -22,7 +24,7 @@ export class MainComponent implements OnInit {
 
   getPictures(): void {
     this.pictureService
-      .getAllPictures(this.limit, this.currentPage)
+      .getAllPictures(this.limit, this.currentPage, this.options)
       .subscribe((res) => {
         this.pictures = res;
       });
@@ -32,6 +34,11 @@ export class MainComponent implements OnInit {
     this.currentPage = e.pageIndex + 1;
     this.limit = e.pageSize;
     //this.store.dispatch(fetchArticleList({ articlesList: [] }));
+    this.getPictures();
+  }
+
+  setSearch(event: IOptions) {
+    this.options = event;
     this.getPictures();
   }
 }

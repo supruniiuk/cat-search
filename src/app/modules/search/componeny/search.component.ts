@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { IBreed } from 'src/app/shared/interfaces/breed.interface';
 import { ICategory } from 'src/app/shared/interfaces/category.interface';
+import { IOptions } from 'src/app/shared/interfaces/picture.interface';
 import { TypeService } from 'src/app/services/type.service';
 
 @Component({
@@ -12,6 +13,12 @@ import { TypeService } from 'src/app/services/type.service';
 export class SearchComponent implements OnInit {
   breeds: IBreed[];
   categories: ICategory[];
+
+  searchSelection: IOptions = {
+    breed: '',
+    category: '',
+  };
+  @Output() search: EventEmitter<any> = new EventEmitter();
 
   constructor(private typeService: TypeService) {}
 
@@ -30,5 +37,9 @@ export class SearchComponent implements OnInit {
     this.typeService.getAllCategories().subscribe((categories) => {
       this.categories = categories;
     });
+  }
+
+  setSearch() {
+    this.search.emit(this.searchSelection);
   }
 }

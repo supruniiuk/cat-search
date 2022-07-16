@@ -4,3 +4,8 @@ export interface IPicture {
   width: number;
   height: number;
 }
+
+export interface IOptions {
+  breed: string;
+  category: string;
+}
