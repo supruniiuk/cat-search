@@ -1,22 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SearchComponent } from './search.component';
+import { TestBed } from '@angular/core/testing';
+import { TypeService } from 'src/app/services/type.service';
 
-describe('SearchComponent', () => {
+describe('Search Component', () => {
   let component: SearchComponent;
-  let fixture: ComponentFixture<SearchComponent>;
+  let typeService: TypeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [SearchComponent],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SearchComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    typeService = TestBed.inject(TypeService);
+    component = new SearchComponent(typeService);
   });
 
   it('should create', () => {
