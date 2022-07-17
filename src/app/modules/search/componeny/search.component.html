@@ -1,27 +1,23 @@
-<div class="search">
-  <mat-form-field *ngIf="breeds" appearance="outline">
-    <mat-label>Select breed</mat-label>
-    <mat-select
-      [(ngModel)]="searchSelection.breed"
-      (selectionChange)="setBreed()"
-    >
-      <mat-option [value]="''">All </mat-option>
-      <mat-option *ngFor="let breed of breeds" [value]="breed.id">{{
-        breed.name
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="search" *ngIf="searchForm">
+  <form [formGroup]="searchForm">
+    <mat-form-field *ngIf="breeds" appearance="outline">
+      <mat-label>Select breed</mat-label>
+      <mat-select formControlName="breed" (selectionChange)="setBreed()">
+        <mat-option [value]="''">All </mat-option>
+        <mat-option *ngFor="let breed of breeds" [value]="breed.id">{{
+          breed.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field *ngIf="categories" appearance="outline">
-    <mat-label>Select category</mat-label>
-    <mat-select
-      [(ngModel)]="searchSelection.category"
-      (selectionChange)="setCategory()"
-    >
-      <mat-option [value]="''">All </mat-option>
-      <mat-option *ngFor="let category of categories" [value]="category.id"
-        >{{ category.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field *ngIf="categories" appearance="outline">
+      <mat-label>Select category</mat-label>
+      <mat-select formControlName="category" (selectionChange)="setCategory()">
+        <mat-option [value]="''">All </mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.id"
+          >{{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
 </div>

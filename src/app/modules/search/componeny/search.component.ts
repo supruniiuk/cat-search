@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { IBreed } from 'src/app/shared/interfaces/breed.interface';
 import { ICategory } from 'src/app/shared/interfaces/category.interface';
@@ -15,10 +16,7 @@ export class SearchComponent implements OnInit {
   breeds: IBreed[];
   categories: ICategory[];
 
-  searchSelection: IOptions = {
-    breed: '',
-    category: '',
-  };
+  searchForm: FormGroup;
 
   subs: Subscription[] = [];
   @Output() search: EventEmitter<any> = new EventEmitter();
@@ -26,8 +24,16 @@ export class SearchComponent implements OnInit {
   constructor(private typeService: TypeService) {}
 
   ngOnInit(): void {
+    this.initForm();
     this.getBreeds();
     this.getCategoties();
+  }
+
+  initForm() {
+    this.searchForm = new FormGroup({
+      breed: new FormControl(''),
+      category: new FormControl(''),
+    });
   }
 
   getBreeds() {
@@ -51,13 +57,17 @@ export class SearchComponent implements OnInit {
   }
 
   setBreed() {
-    this.searchSelection.category = '';
-    this.search.emit(this.searchSelection);
+    this.searchForm.patchValue({
+      category: '',
+    });
+    this.search.emit(this.searchForm.value);
   }
 
   setCategory() {
-    this.searchSelection.breed = '';
-    this.search.emit(this.searchSelection);
+    this.searchForm.patchValue({
+      breed: '',
+    });
+    this.search.emit(this.searchForm.value);
   }
 
   onDestroy(): void {
