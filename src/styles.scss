@@ -1,3 +1,5 @@
+@import "./styles/variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +16,13 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@mixin center() {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -25,15 +34,12 @@ body {
 }
 
 .center {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  @include center();
   z-index: 3;
 }
 
 .shadow {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: $shadow;
   border: 1px solid #eaeaea;
 }
 
@@ -42,11 +48,11 @@ body {
 }
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-  color: #363636;
+  color: $dark;
 }
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
-  color: #363636;
+  color: $dark;
 }
 
 .mat-form-field {
@@ -57,5 +63,3 @@ body {
 .mat-form-field-wrapper {
   padding-bottom: 0;
 }
-
-
