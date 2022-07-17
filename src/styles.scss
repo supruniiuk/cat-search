@@ -14,11 +14,22 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
 .center {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 .shadow {
@@ -46,3 +57,5 @@ body {
 .mat-form-field-wrapper {
   padding-bottom: 0;
 }
+
+

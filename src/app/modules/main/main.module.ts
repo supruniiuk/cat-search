@@ -4,6 +4,7 @@ import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
 import { MainComponent } from './component/main.component';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 import { NgModule } from '@angular/core';
+import { PictureItemComponent } from '../picture/components/picture-item/picture-item.component';
 import { PictureModule } from '../picture/picture.module';
 import { RouterModule } from '@angular/router';
 import { SearchModule } from '../search/search.module';

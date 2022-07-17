@@ -4,7 +4,7 @@ import { IPicture } from 'src/app/shared/interfaces/picture.interface';
 import { fetchPictureList } from './pictures.actions';
 
 export interface PicturesState {
-  picturesList: IPicture[];
+  picturesList: ReadonlyArray<IPicture>;
 }
 
 export const initialState: PicturesState = {
@@ -15,6 +15,6 @@ export const picturesReducer = createReducer(
   initialState,
   on(fetchPictureList, (state, { picturesList }) => ({
     ...state,
-    ...picturesList,
+    picturesList,
   }))
 );

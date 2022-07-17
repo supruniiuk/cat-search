@@ -1,5 +1,14 @@
-<mat-card class="mat-elevation-z0 shadow border" *ngIf="picture">
+<mat-card
+  class="mat-elevation-z0 shadow border"
+  *ngIf="picture"
+  (click)="openPicture()"
+>
   <mat-card-content>
     <img mat-card-image [src]="picture.url" alt="cat" />
   </mat-card-content>
 </mat-card>
+
+<div *ngIf="picked">
+  <div class="backdrop" (click)="picked = false"></div>
+  <app-picture-item class="center" [picture]="picture"></app-picture-item>
+</div>

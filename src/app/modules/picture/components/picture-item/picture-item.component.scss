@@ -1,0 +1,12 @@
+.mat-card {
+  padding: 10px;
+  width: fit-content;
+  max-width: 90%;
+  max-height: 90%;
+  cursor: pointer;
+
+  .mat-card-image {
+    width: 100%;
+    margin: 0;
+  }
+}

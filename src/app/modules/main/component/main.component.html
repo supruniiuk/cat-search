@@ -1,8 +1,8 @@
 <app-search (search)="setSearch($event)"></app-search>
 <mat-divider></mat-divider>
 
-<div *ngIf="pictures">
-  <app-picture-list [pictures]="pictures"></app-picture-list>
+<div *ngIf="(pictures$ | async)">
+  <app-picture-list [pictures]="pictures$ | async"></app-picture-list>
 
   <mat-paginator
     [length]="100"
@@ -13,4 +13,4 @@
   </mat-paginator>
 </div>
 
-<app-loader *ngIf="!pictures"></app-loader>
+<app-loader *ngIf="!(pictures$ | async)"></app-loader>

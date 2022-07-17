@@ -8,5 +8,11 @@ import { IPicture } from 'src/app/shared/interfaces/picture.interface';
   styleUrls: ['./picture.component.scss'],
 })
 export class PictureComponent {
+  picked = false;
+
   @Input() picture: IPicture;
+
+  openPicture() {
+    this.picked = true;
+  }
 }

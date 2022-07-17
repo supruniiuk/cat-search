@@ -3,7 +3,7 @@
     <mat-label>Select breed</mat-label>
     <mat-select
       [(ngModel)]="searchSelection.breed"
-      (selectionChange)="setSearch()"
+      (selectionChange)="setBreed()"
     >
       <mat-option [value]="''">All </mat-option>
       <mat-option *ngFor="let breed of breeds" [value]="breed.id">{{
@@ -16,7 +16,7 @@
     <mat-label>Select category</mat-label>
     <mat-select
       [(ngModel)]="searchSelection.category"
-      (selectionChange)="setSearch()"
+      (selectionChange)="setCategory()"
     >
       <mat-option [value]="''">All </mat-option>
       <mat-option *ngFor="let category of categories" [value]="category.id"
